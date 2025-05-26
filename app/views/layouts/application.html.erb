@@ -1,16 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Chairbnb</title>
+    <title>Chairbnb | Seating rentals, couches, thrones & more</title>
+    <link rel="icon" type="image/png" href="<%= asset_path('chairbnb.png') %>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="bg-body-secondary d-flex flex-column min-vh-100">
+    <header class="bg-danger py-3 ps-5">
+      <img src="<%= asset_path('chairbnb.png') %>" alt="Chairbnb Logo"
+           class="logo img-fluid" style="width: 100px; height: auto;">
+    </header>
+
+    <main class="container-fluid p-5 flex-grow-1">
+      <%= yield %>
+    </main>
+
+    <footer class="bg-dark text-white p-4 w-100 mt-auto">
+      <div class="container text-center">
+        <p class="mb-1">&copy; <%= Time.now.year %> Chairbnb</p>
+        <p class="mb-0">Powered by Ruby on Rails - Developed by Samuel Long</p>
+      </div>
+    </footer>
   </body>
 </html>

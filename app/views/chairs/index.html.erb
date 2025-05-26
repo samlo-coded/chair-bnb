@@ -1,0 +1,21 @@
+<h2 class="mb-3">Popular Chairs &#10549;</h2>
+
+<div class="row row-cols-2 row-cols-md-4 row-cols-xl-5 g-3">
+  <% @chairs.each do |chair| %>
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <img class="card-img-top" src="<%= asset_path('ChairAI.png') %>" alt="<%= chair.name %>" style="height: 150px; object-fit: cover;">
+        <div class="card-body p-2">
+          <h6 class="card-title mb-1"><%= chair.name %></h6>
+          <p class="card-subtitle text-muted small mb-1"><%= chair.address %></p>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="badge bg-warning text-dark small">
+              ⭐ <%= chair.rating %>
+            </span>
+            <button class="btn btn-sm btn-outline-primary">View</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
